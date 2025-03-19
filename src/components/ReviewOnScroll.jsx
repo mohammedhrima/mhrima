@@ -16,7 +16,7 @@ function ReviewOnScroll({ children }) {
     return () => observer.disconnect();
   });
   return (
-    <div ref={ref} className="reveal">
+    <div ref={ref} className="reveal w-[100%] flex justify-center">
       {children}
     </div>
   );

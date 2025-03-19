@@ -18,9 +18,9 @@ function Contact() {
     }).catch(() => alert("Oops! Something went wrong. Please try again"));
   }
   return (
-    <section id='contact' className="min-h-screen flex items-center justify-center py-20">
+    <section id='contact' className="min-h-screen flex items-center justify-center relative">
       <ReviewOnScroll>
-        <div className='px-4 w-150'>
+        <div className='flex-1 max-w-150 p-5'>
           <h2 className='text-3xl font-bold mb-8 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent text-center'>Get In Touch</h2>
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div className="relative">
