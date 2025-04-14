@@ -10,7 +10,7 @@ function Navbar({ menuOpen, setMenuOpen }) {
       <div className="max-w-5xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           <a href="#home" className="font-mono text-xl font-bold text-white">
-            LOGO <span className="text-blue-500">Hrima</span>
+            Hrima <span className="text-blue-500">Dev</span>
           </a>
 
           <div className={`w-7 h-5 relative cursor-pointer z-40 md:hidden transition-opacity duration-300 ${menuOpen ? "opacity-0 pointer-events-none" : "opacity-100"}`}
