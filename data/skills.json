@@ -1,0 +1,103 @@
+[
+  {
+    "id": "languages",
+    "title": "Programming Languages",
+    "icon": "◈",
+    "skills": [
+      { "name": "C", "level": 95 },
+      { "name": "C++", "level": 92 },
+      { "name": "JavaScript / TypeScript", "level": 90 },
+      { "name": "Python", "level": 85 },
+      { "name": "Java", "level": 78 },
+      { "name": "Bash", "level": 75 },
+      { "name": "Assembly (x86/LLVM IR)", "level": 65 }
+    ]
+  },
+  {
+    "id": "frontend",
+    "title": "Frontend",
+    "icon": "◉",
+    "skills": [
+      { "name": "React.js", "level": 93 },
+      { "name": "Next.js", "level": 90 },
+      { "name": "Flutter", "level": 78 },
+      { "name": "Tailwind CSS", "level": 92 },
+      { "name": "SCSS", "level": 80 },
+      { "name": "Framer Motion", "level": 72 },
+      { "name": "Refine", "level": 80 },
+      { "name": "shadcn/ui", "level": 82 }
+    ]
+  },
+  {
+    "id": "backend",
+    "title": "Backend",
+    "icon": "◐",
+    "skills": [
+      { "name": "Node.js / Express.js", "level": 87 },
+      { "name": "Spring Boot", "level": 80 },
+      { "name": "FastAPI", "level": 85 },
+      { "name": "Flask", "level": 75 },
+      { "name": "Django", "level": 72 },
+      { "name": "WebSocket", "level": 80 }
+    ]
+  },
+  {
+    "id": "ai-ml",
+    "title": "AI / Machine Learning",
+    "icon": "◑",
+    "skills": [
+      { "name": "TensorFlow / Keras", "level": 75 },
+      { "name": "OpenCV", "level": 72 },
+      { "name": "Ollama (Local LLMs)", "level": 82 },
+      { "name": "Playwright (Browser Agent)", "level": 78 },
+      { "name": "RAG / Prompt Engineering", "level": 80 }
+    ]
+  },
+  {
+    "id": "databases",
+    "title": "Databases",
+    "icon": "◒",
+    "skills": [
+      { "name": "PostgreSQL", "level": 85 },
+      { "name": "MySQL / MariaDB", "level": 83 },
+      { "name": "MongoDB", "level": 78 },
+      { "name": "SQLite", "level": 80 },
+      { "name": "SQLAlchemy / Spring JPA", "level": 78 }
+    ]
+  },
+  {
+    "id": "devops",
+    "title": "DevOps & Infrastructure",
+    "icon": "⚙",
+    "skills": [
+      { "name": "Docker / Docker Compose", "level": 88 },
+      { "name": "Nginx", "level": 80 },
+      { "name": "Git / GitHub", "level": 92 },
+      { "name": "LLVM / Clang", "level": 78 },
+      { "name": "Linux / Bash Scripting", "level": 82 }
+    ]
+  },
+  {
+    "id": "testing",
+    "title": "Testing & Quality",
+    "icon": "◎",
+    "skills": [
+      { "name": "Google Test (C++)", "level": 75 },
+      { "name": "Cypress", "level": 70 },
+      { "name": "Jest", "level": 72 },
+      { "name": "Pytest", "level": 75 }
+    ]
+  },
+  {
+    "id": "cad",
+    "title": "CAD / Engineering Tools",
+    "icon": "△",
+    "skills": [
+      { "name": "SolidWorks", "level": 85 },
+      { "name": "Catia", "level": 82 },
+      { "name": "AutoCAD", "level": 75 },
+      { "name": "TopSolid", "level": 70 },
+      { "name": "MS Project", "level": 72 }
+    ]
+  }
+]

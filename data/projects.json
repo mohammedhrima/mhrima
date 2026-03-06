@@ -1,0 +1,241 @@
+{
+  "categories": {
+    "ALL": "All",
+    "FEATURED": "Featured",
+    "SYSTEMS": "Systems",
+    "WEB": "Web",
+    "AI": "AI / ML",
+    "BACKEND": "Backend"
+  },
+  "projects": [
+    {
+      "id": "ura-lang",
+      "title": "Ura Language",
+      "tagline": "My own compiled programming language",
+      "description": "A compiled, statically-typed language with Python's clean indentation syntax — built on LLVM and written entirely in C. No braces. No semicolons. Full pipeline: tokenizer → recursive-descent parser → AST → gen_ir (type checking) → gen_asm (LLVM IR) → llc → clang → native binary. Supports C interop via proto declarations, explicit stack/heap memory control, structs with init() constructors, nested structs, references, variadic functions, type casting, typeof/sizeof, and a 9-module standard library (@/io, @/memory, @/string, @/net, ...). Includes TCP/IP networking via POSIX socket APIs with real TCP chat examples.",
+      "technologies": ["C", "LLVM", "Assembly"],
+      "github": "https://github.com/mohammedhrima/ura-lang",
+      "category": "Systems",
+      "featured": true,
+      "hasTutorial": true,
+      "highlights": [
+        "Full LLVM compilation pipeline written from scratch in C",
+        "Python-like indentation syntax — no braces, no semicolons",
+        "9-module standard library including TCP/IP networking (POSIX sockets)",
+        "Explicit stack/heap allocation, references, structs, C interop via proto"
+      ]
+    },
+    {
+      "id": "urajs",
+      "title": "UraJS",
+      "tagline": "My own frontend SPA framework",
+      "description": "A lightweight single-page application framework inspired by React and Next.js. Directory-based routing auto-generates routes from the file structure. Reactive state via Ura.State with getter/setter pattern. Custom JSX handling with conditional tags and loop tags. Built-in live reload dev server. CLI for route and component generation. npm run build outputs a docker/ directory with auto-generated Dockerfile + Nginx config for production.",
+      "technologies": ["JavaScript", "TypeScript", "Node.js", "Express.js", "Docker", "Nginx"],
+      "github": "https://github.com/mohammedhrima/UraJS",
+      "category": "Web",
+      "featured": true,
+      "hasTutorial": true,
+      "highlights": [
+        "Directory-based routing — Next.js-style, auto-generated from file structure",
+        "Reactive state with Ura.State getter/setter pattern",
+        "Custom JSX: <ura-if>, <ura-elif>, <ura-else>, <ura-loop> tags",
+        "Build outputs Docker + Nginx deployment package automatically"
+      ]
+    },
+    {
+      "id": "raytracer",
+      "title": "Raytracer",
+      "tagline": "3D rendering engine in C++",
+      "description": "A C++ raytracer that renders 3D scenes with physically-based lighting using SDL2. Core: ray-sphere and ray-plane intersection, Lambertian diffuse reflection, specular highlights, ambient lighting, shadow rays. Multithreaded rendering for performance. Interactive camera: left-click drag to rotate, scroll to zoom, arrow keys to navigate. Built with C++98 + strict warnings, custom vector math, SDL2 for window management — no external ray-tracing libraries.",
+      "technologies": ["C++", "SDL2", "Multithreading"],
+      "github": "https://github.com/mohammedhrima/Raytracer",
+      "category": "Systems",
+      "featured": true,
+      "highlights": [
+        "Ray-sphere + ray-plane intersection with Lambertian + specular + shadow rays",
+        "Multithreaded parallel rendering for real-time interactive performance",
+        "Interactive camera: rotate (drag), zoom (scroll), navigate (arrow keys)",
+        "Pure C++98 — no external ray-tracing libraries, custom vector math"
+      ]
+    },
+    {
+      "id": "webserver",
+      "title": "HTTP Webserver",
+      "tagline": "Nginx-inspired C++ HTTP/1.1 server",
+      "description": "A high-performance HTTP/1.1 webserver built from RFC 2616 in C++98. Non-blocking I/O, persistent Keep-Alive connections, chunked transfer encoding, multiple virtual hosts via Nginx-style config files, CGI execution for Python and PHP, static file serving, autoindex directory listings, custom error pages, file upload via POST, and body-size limits. Clean Config → Server → Request → Response → CGI layered architecture. 42 School project.",
+      "technologies": ["C++", "HTTP/1.1", "CGI", "Nginx"],
+      "github": "https://github.com/mohammedhrima/Webserver",
+      "category": "Systems",
+      "featured": false,
+      "highlights": [
+        "Non-blocking I/O with Keep-Alive persistent connections",
+        "CGI support for Python and PHP scripts",
+        "Multiple virtual hosts with Nginx-style block configuration"
+      ]
+    },
+    {
+      "id": "deribit",
+      "title": "Order Execution System",
+      "tagline": "Low-latency C++ trading system",
+      "description": "Built during a GoQuant bootcamp. A C++ trading interface for the Deribit cryptocurrency derivatives exchange. Custom lightweight C++ HTTP server serves an HTML/JS frontend for the full trading workflow: authenticate → view real-time orderbook via WebSocket → place/modify/cancel orders → check positions and P&L. Supports BTC/ETH perpetuals and futures.",
+      "technologies": ["C++", "WebSocket", "HTTP Server", "Low Latency"],
+      "github": "https://github.com/mohammedhrima/deribit",
+      "category": "Systems",
+      "featured": false
+    },
+    {
+      "id": "inception",
+      "title": "Inception",
+      "tagline": "Docker infrastructure from scratch",
+      "description": "A complete Docker-based infrastructure: NGINX (SSL/TLS termination) + WordPress (PHP-FPM) + MariaDB — all from custom-written Dockerfiles, zero pre-built images. Services communicate through a private Docker bridge network; only NGINX exposes port 443. Data persisted via Docker volumes. 42 School system administration project.",
+      "technologies": ["Docker", "Nginx", "WordPress", "MariaDB", "SSL/TLS"],
+      "github": "https://github.com/mohammedhrima/inception",
+      "category": "Systems",
+      "featured": false
+    },
+    {
+      "id": "apcm-pharma",
+      "title": "PharmaGest",
+      "tagline": "Professional pharmacy management system",
+      "description": "A full-stack pharmacy management system built for a real client (APCM). FastAPI + SQLAlchemy backend with JWT auth and RBAC (Admin/Staff/Viewer). React + TypeScript + Refine + shadcn/ui frontend with POS interface, inventory tracking, batch/expiry management, sales analytics, low-stock alerts, supplier management, and report generation.",
+      "technologies": ["FastAPI", "SQLAlchemy", "React", "TypeScript", "Refine", "shadcn/ui", "Tailwind CSS"],
+      "github": "https://github.com/mohammedhrima/apcm-pharma",
+      "category": "Web",
+      "featured": false,
+      "isProfessional": true,
+      "highlights": [
+        "Built for a real pharmacy client — production-grade system",
+        "POS interface with cart, discounts, receipts, and payment tracking",
+        "JWT auth + RBAC (Admin/Staff/Viewer) + audit logging"
+      ]
+    },
+    {
+      "id": "forge",
+      "title": "Mizuva — Water Treatment Dashboard",
+      "tagline": "Real-time operations dashboard for a water facility",
+      "description": "A real-time water treatment facility management dashboard built for a professional client. Monitors pH, turbidity, chlorine, and other critical parameters live with configurable alert thresholds. Interactive Chart.js charts for trend analysis. Treatment process controls, maintenance scheduling, client management, and compliance reporting.",
+      "technologies": ["React", "TypeScript", "Chart.js", "React Router", "Tailwind CSS"],
+      "github": "https://github.com/mohammedhrima/forge",
+      "category": "Web",
+      "featured": false,
+      "isProfessional": true
+    },
+    {
+      "id": "deep-seek-clone",
+      "title": "DeepSeek Clone",
+      "tagline": "Full-stack AI chat app",
+      "description": "A full-stack AI chat app replicating DeepSeek's interface. Next.js App Router + TypeScript with streaming real-time AI responses via OpenRouter → DeepSeek model. Clerk auth (email/Google/GitHub). MongoDB for persistent conversation storage with multi-thread management. Deployed live on Vercel.",
+      "technologies": ["Next.js", "MongoDB", "Clerk", "Tailwind CSS", "TypeScript", "OpenRouter"],
+      "github": "https://github.com/mohammedhrima/deep-seek-clone",
+      "live": "https://deep-seek-clone-one.vercel.app/",
+      "category": "Web",
+      "featured": false
+    },
+    {
+      "id": "google-drive-clone",
+      "title": "Google Drive Clone",
+      "tagline": "Full-featured cloud storage app",
+      "description": "A Google Drive-inspired cloud storage app with Next.js 15 + React 19 + TypeScript. File upload (drag-and-drop), folder hierarchy, search, sharing via links, in-browser preview, trash management with restore, and storage usage tracking. Uses Turbopack for fast builds.",
+      "technologies": ["Next.js", "TypeScript", "React 19", "Tailwind CSS", "Turbopack"],
+      "github": "https://github.com/mohammedhrima/google-drive-clone",
+      "category": "Web",
+      "featured": false
+    },
+    {
+      "id": "anime-website",
+      "title": "Anime Vault",
+      "tagline": "Animated anime discovery platform",
+      "description": "A modern anime discovery platform with infinite scroll powered by the Intersection Observer API. Next.js 14 App Router server actions fetch from the Jikan API (unofficial MyAnimeList). Framer Motion staggered animations at 60fps. Displays title, episodes, rating, synopsis, and genres per anime. Fully SSR + responsive.",
+      "technologies": ["Next.js", "Framer Motion", "Jikan API", "TypeScript", "Tailwind CSS"],
+      "github": "https://github.com/mohammedhrima/anime-website",
+      "category": "Web",
+      "featured": false
+    },
+    {
+      "id": "online-chat",
+      "title": "Online Chat Platform",
+      "tagline": "Real-time messaging web app",
+      "description": "A full-stack real-time chat application with React frontend, Node.js + Express backend, and PostgreSQL for persistent conversation history. Live messaging, responsive UI, multi-room conversation management.",
+      "technologies": ["React", "Node.js", "Express.js", "PostgreSQL"],
+      "github": "https://github.com/mohammedhrima/online-chat",
+      "category": "Web",
+      "featured": false
+    },
+    {
+      "id": "medi-simple-gpt",
+      "title": "MediSimpleGPT",
+      "tagline": "Local medical AI assistant with browser agent",
+      "description": "A local-first medical AI assistant — no cloud APIs, runs entirely on-premises. FastAPI backend drives a real Chromium browser via Playwright for DOM-based web automation. IBM Granite 3.1 Dense 8B via Ollama for inference, Wikipedia-based RAG for medical Q&A with typo detection and conversational context. SQLite for persistent chat history. Browser agent pipeline: /connect → extract DOM → LLM plans actions → /execute in real Chromium → /simplify output. React + TypeScript frontend.",
+      "technologies": ["Python", "FastAPI", "Ollama", "Playwright", "React", "TypeScript", "SQLite"],
+      "github": "https://github.com/mohammedhrima/MediSimpleGPT",
+      "category": "AI / ML",
+      "featured": true,
+      "highlights": [
+        "Browser agent pipeline: connect → extract DOM → LLM action planning → execute in real Chromium browser",
+        "Wikipedia RAG for medical Q&A — typo detection, multi-turn conversational context",
+        "100% local, zero cloud dependency — IBM Granite 3.1 Dense 8B via Ollama",
+        "Full-stack: FastAPI + Playwright backend, React/TypeScript frontend, SQLite history"
+      ]
+    },
+    {
+      "id": "employee-churn",
+      "title": "Employee Churn Prediction",
+      "tagline": "ML prediction with local LLM",
+      "description": "An AI-powered HR analytics tool that predicts employee churn risk. FastAPI + Ollama (IBM Granite 3.1 Dense 8B). Analyzes tenure, satisfaction, role, and salary band. Returns prediction (STAY/CHURN), confidence (HIGH/MEDIUM/LOW), and AI-generated natural-language explanation. Fully offline — privacy-first. React + TypeScript frontend.",
+      "technologies": ["Python", "FastAPI", "Ollama", "React", "TypeScript", "Tailwind CSS"],
+      "github": "https://github.com/mohammedhrima/EmployeeChurnPrediction",
+      "category": "AI / ML",
+      "featured": false
+    },
+    {
+      "id": "image-classifier",
+      "title": "AI Image Classifier",
+      "tagline": "CNN-based image recognition",
+      "description": "An image classifier CNN trained on CIFAR-10 (60,000 images). Architecture: 3 Conv2D + MaxPooling blocks → Flatten → Dense(64) → Softmax(10 classes). Classifies: airplane, car, bird, cat, deer, dog, frog, horse, ship, truck. ~70-75% test accuracy. OpenCV preprocessing. Pre-trained model included.",
+      "technologies": ["Python", "TensorFlow", "OpenCV", "CNN", "Keras"],
+      "github": "https://github.com/mohammedhrima/Image-classifier",
+      "category": "AI / ML",
+      "featured": false
+    },
+    {
+      "id": "patients-management",
+      "title": "Patients Management API",
+      "tagline": "Healthcare REST API with Spring Boot",
+      "description": "A REST API for patient records in healthcare. Spring Boot + Spring Data JPA + MySQL. Full entity model: Patient, MedicalHistory, Appointment, Prescription, EmergencyContact. Spring Security JWT auth + RBAC. HIPAA-compliant: audit logging, encryption, input validation, bcrypt passwords. Layered: Model → Repository → Service → Controller → DTO. Dockerized.",
+      "technologies": ["Java", "Spring Boot", "MySQL", "Spring Security", "JWT", "Docker"],
+      "github": "https://github.com/mohammedhrima/patients-management",
+      "category": "Backend",
+      "featured": false
+    },
+    {
+      "id": "shopping-cart",
+      "title": "Shopping Cart API",
+      "tagline": "Spring Boot e-commerce backend",
+      "description": "A Spring Boot REST API for e-commerce cart management. Product listing, cart operations (add/remove/update), and order handling with clean layered architecture.",
+      "technologies": ["Java", "Spring Boot", "REST API"],
+      "github": "https://github.com/mohammedhrima/Shopping-Cart-Backend",
+      "category": "Backend",
+      "featured": false
+    },
+    {
+      "id": "books-api",
+      "title": "Books REST API",
+      "tagline": "Spring Boot books catalog",
+      "description": "A RESTful books catalog API with full CRUD operations and clean model/controller/service layered architecture.",
+      "technologies": ["Java", "Spring Boot", "REST API"],
+      "github": "https://github.com/mohammedhrima/books-spring-boot-rest-api",
+      "category": "Backend",
+      "featured": false
+    },
+    {
+      "id": "products-api",
+      "title": "Products REST API",
+      "tagline": "Spring Boot products service",
+      "description": "A Spring Boot products management API with full CRUD operations following RESTful conventions and clean layered architecture.",
+      "technologies": ["Java", "Spring Boot", "REST API"],
+      "github": "https://github.com/mohammedhrima/products-spring-boot-rest-api",
+      "category": "Backend",
+      "featured": false
+    }
+  ]
+}

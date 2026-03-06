@@ -1,0 +1,62 @@
+[
+  {
+    "id": "1337",
+    "degree": "Computer Science",
+    "institution": "Mohammed VI Polytechnic University — 1337 (42 Network)",
+    "date": "Oct 2022 – Jan 2025",
+    "location": "Ben Guerir, Morocco",
+    "link": "https://1337.ma/en/",
+    "description": "Project-based computer science education inspired by 42 Network peer-to-peer pedagogy. No professors — learn by doing and peer code review. Completed projects spanning systems programming, networking, compilers, graphics, and Docker infrastructure.",
+    "topics": ["C", "Unix", "Networking", "Algorithms", "Data Structures", "Docker", "HTTP/1.1"]
+  },
+  {
+    "id": "self-taught",
+    "degree": "Self-Taught Programming",
+    "institution": null,
+    "date": "2020",
+    "location": "During COVID-19",
+    "link": null,
+    "description": "Started programming during the pandemic lockdown. Learned Python, JavaScript, and HTML/CSS from scratch, building small projects to gain foundational software development skills.",
+    "topics": ["Python", "JavaScript", "HTML/CSS", "Problem Solving"]
+  },
+  {
+    "id": "mechanical",
+    "degree": "Bachelor's in Mechanical Engineering",
+    "institution": "Faculty of Science and Technology",
+    "date": "Jul 2019",
+    "location": "Settat, Morocco",
+    "link": "https://www.fsts.ac.ma/",
+    "description": "Studied mechanical engineering — thermodynamics, fluid mechanics, material science, and CAD-based design. This engineering foundation directly shapes how I approach software architecture and systems design.",
+    "topics": ["Thermodynamics", "Fluid Mechanics", "CAD/CAM", "Mathematics", "Physics"]
+  },
+  {
+    "id": "cnc",
+    "degree": "CNC Machining Certification",
+    "institution": "Institute of Aeronautical Trades",
+    "date": "Nov 2019",
+    "location": "Nouaceur, Morocco",
+    "link": "https://www.imacasablanca.com/",
+    "description": "Specialized training in CNC machine operation and programming for aerospace parts. Gained hands-on precision manufacturing and CAD/CAM experience.",
+    "topics": ["CNC Programming", "Precision Manufacturing", "CAD/CAM", "Quality Control"]
+  },
+  {
+    "id": "ofppt",
+    "degree": "Mechanical Manufacturing — Specialized Technician Diploma",
+    "institution": "OFPPT",
+    "date": "Jun 2018",
+    "location": "Safi, Morocco",
+    "link": "https://www.ofppt.ma/en",
+    "description": "Technical diploma in mechanical manufacturing. Learned industry-standard CAD tools including Catia and SolidWorks for design, prototyping, and production planning.",
+    "topics": ["Catia", "SolidWorks", "Manufacturing", "Technical Drawing"]
+  },
+  {
+    "id": "bac",
+    "degree": "Scientific Mathematics Baccalaureate",
+    "institution": "Cherif Idrissi",
+    "date": "Jun 2016",
+    "location": "Safi, Morocco",
+    "link": null,
+    "description": "Graduated with strong focus on mathematics and physics. Built the analytical problem-solving mindset that underpins my approach to complex engineering challenges.",
+    "topics": ["Mathematics", "Physics", "Analytical Reasoning"]
+  }
+]

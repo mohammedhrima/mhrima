@@ -1,0 +1,136 @@
+[
+  {
+    "id": "yakeey",
+    "title": "Full-Stack & Mobile Developer",
+    "company": "Yakeey",
+    "type": "Full-time",
+    "date": "Jun 2025 – Present",
+    "location": "Casablanca, Morocco",
+    "link": "https://www.yakeey.com/",
+    "tags": ["React", "Next.js", "Flutter", "Spring Boot", "TypeScript", "Tailwind CSS"],
+    "description": "Building and maintaining customer-facing banking and real estate platforms for Yakeey, a Moroccan real estate fintech. Full stack across React/TypeScript frontend, Flutter mobile apps, and Spring Boot backend services.",
+    "bullets": [
+      "Built the landing page 'Financer mon projet' on yakeey.com.",
+      "Contributed to Yakeey-UI, a standardized reusable component library across all Yakeey platforms.",
+      "CIH Landing Front — Developed the dashboard enabling CIH agents to view, approve, or cancel real estate credit requests.",
+      "CIH Parcours Web — Maintained and improved the user credit request flow, guiding clients to input their information to obtain tailored credit offers.",
+      "Cockpit Front — Contributed to the platform allowing users to upload credit documents and experts to validate or reject requests based on eligibility.",
+      "CIH Mobile App (Flutter) — Designed and implemented the simulation and credit request module, including document upload and expert tracking.",
+      "Reduced manual client processing time by an estimated 20% for end-users and financial experts."
+    ]
+  },
+  {
+    "id": "pharmagest",
+    "title": "Freelance Full-Stack Developer",
+    "company": "APCM Pharma (Client)",
+    "type": "Freelance",
+    "date": "Feb 2026 – Present",
+    "location": "Morocco",
+    "link": null,
+    "tags": ["FastAPI", "React", "TypeScript", "Refine", "shadcn/ui", "SQLAlchemy"],
+    "description": "Designing and building PharmaGest — a full pharmacy management system for a Moroccan pharmacy client. Ongoing part-time freelance project running concurrently with full-time role at Yakeey.",
+    "bullets": [
+      "Built FastAPI + SQLAlchemy backend with JWT authentication and role-based access control (Admin/Staff/Viewer).",
+      "Developed React + TypeScript + Refine + shadcn/ui frontend with full POS interface.",
+      "Implemented inventory management with batch/expiry tracking, low-stock alerts, and supplier management.",
+      "Added sales analytics dashboard and PDF/Excel report generation."
+    ]
+  },
+  {
+    "id": "forge",
+    "title": "Frontend Developer",
+    "company": "The Forge — Startgate",
+    "type": "Contract",
+    "date": "Apr 2025",
+    "location": "Ben Guerir, Morocco",
+    "link": null,
+    "tags": ["React", "TypeScript", "Chart.js", "Tailwind CSS"],
+    "description": "Short engagement at a startup incubator. Built a water purification MVP with real-time monitoring feedback and an intuitive user interface.",
+    "bullets": [
+      "Developed a water purification MVP with real-time feedback and an intuitive ReactJS UI.",
+      "Implemented interactive Chart.js dashboards with live parameter monitoring and configurable alert thresholds.",
+      "Delivered process controls, maintenance scheduling, and compliance reporting features."
+    ]
+  },
+  {
+    "id": "goquant",
+    "title": "Backend Developer",
+    "company": "GoQuant",
+    "type": "Bootcamp",
+    "date": "Feb 2025 – Mar 2025",
+    "location": "Remote",
+    "link": "https://goquant.io/",
+    "tags": ["C++", "WebSocket", "Multithreading", "Low Latency", "Bash"],
+    "description": "Intensive engineering bootcamp at a high-frequency trading firm. Built production-quality low-latency trading systems in C++ with direct exposure to live market infrastructure.",
+    "bullets": [
+      "Designed and implemented multi-threaded trading algorithms in C++, reducing order execution latency by 30%.",
+      "Built a full Deribit order execution system: WebSocket real-time orderbook, place/modify/cancel orders.",
+      "Optimized the core trading platform for better scalability, stability, and concurrent process management.",
+      "Developed Bash scripts to automate client request testing and simulate high-frequency trading scenarios under real conditions."
+    ]
+  },
+  {
+    "id": "freelance",
+    "title": "Software Developer (Freelance)",
+    "company": null,
+    "type": "Freelance",
+    "date": "Jan 2022 – Mar 2022",
+    "location": "Morocco",
+    "link": null,
+    "tags": ["Python", "JavaScript", "HTML/CSS"],
+    "description": "Developed a custom internal communication tool for a manufacturing company.",
+    "bullets": [
+      "Built a desktop application for rotating team communication using Python Eel, JavaScript, and HTML/CSS.",
+      "Designed a modern, interactive interface adapted for daily cross-shift use.",
+      "Deployed the application for active use in a manufacturing environment."
+    ]
+  },
+  {
+    "id": "lpf-method",
+    "title": "Methods Preparation Technician",
+    "company": "LPF Casablanca (Aerospace Industry)",
+    "type": "Full-time",
+    "date": "Jan 2021 – Jan 2022",
+    "location": "Casablanca, Morocco",
+    "link": "https://www.groupe-lpf.com/",
+    "tags": ["MS Project", "TopSolid", "SAFRAN", "Rolls-Royce"],
+    "description": "Managed manufacturing project scheduling and tooling design for aerospace clients including SAFRAN and Rolls-Royce.",
+    "bullets": [
+      "Planned team tasks and project schedules using MS Project for aerospace part production.",
+      "Represented the technical team in meetings with clients such as Rolls-Royce and SAFRAN.",
+      "Created 2D/3D designs for control and manufacturing tools using TopSolid CAD."
+    ]
+  },
+  {
+    "id": "mds-trainer",
+    "title": "CAD Trainer (Part-Time)",
+    "company": "Management Digital School",
+    "type": "Part-time",
+    "date": "Jan 2021 – Jun 2021",
+    "location": "Casablanca, Morocco",
+    "link": "https://mdssup.ma/",
+    "tags": ["SolidWorks", "Catia", "Teaching"],
+    "description": "Taught 3D mechanical design to students at a digital engineering school.",
+    "bullets": [
+      "Taught students the fundamentals of mechanical manufacturing and computer-aided design (CAD).",
+      "Instructed 3D modeling, assembly design, and technical drawing using SolidWorks and Catia.",
+      "Guided learners through real-world mechanical design projects from concept to final model."
+    ]
+  },
+  {
+    "id": "lpf-cnc",
+    "title": "CNC Machinist",
+    "company": "LPF Casablanca (Aerospace Industry)",
+    "type": "Full-time",
+    "date": "Nov 2019 – Mar 2020",
+    "location": "Casablanca, Morocco",
+    "link": "https://www.groupe-lpf.com/",
+    "tags": ["CNC", "Precision Manufacturing", "Quality Control"],
+    "description": "Operated precision CNC machinery for aerospace component manufacturing.",
+    "bullets": [
+      "Operated and programmed CNC machines for precision aerospace parts.",
+      "Maintained dimensional accuracy using precision instruments, adhering to strict aerospace quality standards.",
+      "Maintained and troubleshot CNC equipment to minimize production downtime."
+    ]
+  }
+]

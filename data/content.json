@@ -1,0 +1,76 @@
+{
+  "personal": {
+    "name": "Hrima Mohammed",
+    "title": "Software Engineer",
+    "subtitles": [
+      "Full-Stack Developer",
+      "Systems Programmer",
+      "Compiler Engineer",
+      "Low-Latency Specialist"
+    ],
+    "email": "mohammed.hrima1998@gmail.com",
+    "phone": "+212 657 80 48 24",
+    "website": "mhrima.me",
+    "linkedin": "https://www.linkedin.com/in/mohammedhrima/",
+    "github": "https://github.com/mohammedhrima",
+    "location": "Marrakesh-Safi, Morocco",
+    "currentRole": "Software Engineer at Yakeey",
+    "summary": "Full stack engineer specializing in performance-critical code and architecting scalable web applications. My focus is on reliability and efficiency — skills I developed from a unique foundation. While I transitioned from Mechanical and CNC Engineering to IT, my background instilled a deep commitment to precision, robust architecture, and process optimization principles I now apply directly to maximizing code quality and application reliability.",
+    "shortBio": "I build things from the ground up. A compiled language, a frontend framework, a 3D raytracer, and production systems for real banks. From LLVM backends to Next.js UIs — I love understanding how every layer works."
+  },
+  "stats": [
+    {
+      "value": "30%",
+      "label": "Latency reduction",
+      "detail": "at GoQuant, C++ multithreaded trading system"
+    },
+    {
+      "value": "15%",
+      "label": "Reliability improvement",
+      "detail": "banking platforms at Yakeey"
+    },
+    {
+      "value": "20%",
+      "label": "Processing time saved",
+      "detail": "CIH Bank client onboarding workflows"
+    },
+    {
+      "value": "20+",
+      "label": "Projects built",
+      "detail": "from compilers to full-stack apps"
+    }
+  ],
+  "techBadges": [
+    "C++", "C", "LLVM", "Rust-inspired memory model",
+    "React", "Next.js", "TypeScript",
+    "Spring Boot", "Node.js", "Python",
+    "Docker", "PostgreSQL", "WebSocket"
+  ],
+  "languages": [
+    { "name": "Arabic", "level": "Native" },
+    { "name": "French", "level": "Full Professional" },
+    { "name": "English", "level": "Full Professional" }
+  ],
+  "certifications": [
+    "APQP",
+    "CAD Design",
+    "Microsoft Project"
+  ],
+  "interests": [
+    "Understanding the inner workings of technologies",
+    "Reading novels",
+    "Calisthenics & Fitness",
+    "Photography"
+  ],
+  "terminalLines": [
+    "$ git clone github.com/mohammedhrima/ura-lang",
+    "$ source config.sh && build",
+    "✓ Ura compiler built successfully",
+    "$ echo 'main(): printf(\"Hello, World!\")' > hello.ura",
+    "$ ura hello.ura",
+    "  Tokenizing → Parsing → IR Gen → LLVM",
+    "  Optimizing with -O2...",
+    "✓ Hello, World!",
+    "$ _"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "_comment": "Edit this file to change the entire site's color scheme. Colors are applied as CSS custom properties.",
+  "colors": {
+    "bgPrimary": "#000000",
+    "bgSecondary": "#0a0a0a",
+    "bgCard": "#0f0f0f",
+    "bgCardHover": "#141414",
+    "bgCode": "#0d0d0d",
+    "borderDefault": "rgba(255,255,255,0.07)",
+    "borderHover": "rgba(255,255,255,0.15)",
+    "accentBlue": "#3b82f6",
+    "accentIndigo": "#6366f1",
+    "accentGreen": "#10b981",
+    "accentCyan": "#06b6d4",
+    "accentPurple": "#8b5cf6",
+    "textPrimary": "#ffffff",
+    "textSecondary": "#a1a1aa",
+    "textMuted": "#52525b",
+    "glowBlue": "rgba(59, 130, 246, 0.15)",
+    "glowGreen": "rgba(16, 185, 129, 0.12)",
+    "gradientHero": "linear-gradient(135deg, #3b82f6, #6366f1, #8b5cf6)"
+  }
+}
