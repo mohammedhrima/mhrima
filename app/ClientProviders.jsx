@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ThemeProvider } from "next-themes";
 import { Refine } from "@refinedev/core";
 import routerProvider from "@refinedev/nextjs-router";
@@ -21,7 +21,27 @@ const resources = [
 
 export default function ClientProviders({ children }) {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [showLoading, setShowLoading] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    // Check if this is a navigation (not a fresh page load)
+    const isNavigation = window.performance && 
+                         window.performance.navigation.type === 1; // TYPE_RELOAD
+    
+    // Or check using Navigation Timing API Level 2
+    const perfEntries = performance.getEntriesByType("navigation");
+    const isReload = perfEntries.length > 0 && 
+                     (perfEntries[0].type === "reload" || perfEntries[0].type === "navigate");
+    
+    // Always show loading on fresh load or reload
+    setShowLoading(true);
+  }, []);
+
+  const handleLoadingComplete = () => {
+    setIsLoaded(true);
+    setShowLoading(false);
+  };
 
   return (
     <ThemeProvider
@@ -30,7 +50,7 @@ export default function ClientProviders({ children }) {
       themes={["portfolio", "claude", "twitter", "verecell", "facebook", "google"]}
       disableTransitionOnChange
     >
-      {!isLoaded && <LoadingScreen onComplete={() => setIsLoaded(true)} />}
+      {showLoading && !isLoaded && <LoadingScreen onComplete={handleLoadingComplete} />}
       <div className={`transition-opacity duration-700 ${isLoaded ? "opacity-100" : "opacity-0"}`}>
         <Refine
           routerProvider={routerProvider}
