@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -sI https://mhrima.me/)",
+      "Bash(curl -s \"https://raw.githubusercontent.com/mohammedhrima/mhrima/gh-pages/CNAME\")"
+    ]
+  }
+}
