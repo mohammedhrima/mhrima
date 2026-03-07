@@ -13,15 +13,15 @@ export default function LoadingScreen({ onComplete }) {
       index++;
       if (index > fullText.length) {
         clearInterval(interval);
-        setTimeout(() => onComplete(), 1000);
+        setTimeout(() => onComplete(), 200);
       }
-    }, 90);
+    }, 40);
     return () => clearInterval(interval);
   }, [onComplete]);
 
   return (
-    <div className="fixed inset-0 z-50 bg-black text-gray-100 flex flex-col items-center justify-center">
-      <div className="mb-4 text-4xl font-mono font-bold">
+    <div className="fixed inset-0 z-50 bg-black text-gray-100 flex flex-col items-center justify-center w-full">
+      <div className="mb-4 text-2xl sm:text-4xl font-mono font-bold w-full text-center">
         {text}
         <span className="animate-blink ml-1">|</span>
       </div>

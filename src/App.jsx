@@ -41,7 +41,7 @@ export default function App() {
   return (
     <BrowserRouter>
       {showLoading && !isLoaded && <LoadingScreen onComplete={handleLoadingComplete} />}
-      <div className={`transition-opacity duration-700 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+      <div className={`transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
         <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
         <MobileMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
         <ThemeSelector />
