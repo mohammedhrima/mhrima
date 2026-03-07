@@ -15,8 +15,8 @@
     "start": "next start",
     "lint": "next lint",
     "export": "next build && next export",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d out",
+    "predeploy": "npm run build && touch out/.nojekyll",
+    "deploy": "gh-pages -d out --dotfiles",
     "clean": "rm -rf .next out node_modules/.cache"
   },
   "dependencies": {
