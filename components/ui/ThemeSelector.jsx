@@ -1,13 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import { useTheme } from "../../src/providers/ThemeProvider";
-import { SiAnthropic, SiGoogle, SiX, SiFacebook } from "react-icons/si";
-import { Code2, LayoutGrid } from "lucide-react";
+import { SiAnthropic, SiGoogle, SiX, SiFacebook, SiNextdotjs } from "react-icons/si";
+import { Code2 } from "lucide-react";
 
 const themes = [
   { id: "portfolio", label: "Portfolio", Icon: Code2,       color: "#3b82f6" },
   { id: "claude",    label: "Claude",    Icon: SiAnthropic, color: "#d97706" },
   { id: "twitter",   label: "X",         Icon: SiX,         color: "#1d9bf0" },
-  { id: "verecell",  label: "Verecell",  Icon: LayoutGrid,  color: "#ffffff", darkColor: "#ffffff", lightColor: "#000000" },
+  { id: "verecell",  label: "Verecell",  Icon: SiNextdotjs, color: "#ffffff", darkColor: "#ffffff", lightColor: "#000000" },
   { id: "facebook",  label: "Facebook",  Icon: SiFacebook,  color: "#2d88ff" },
   { id: "google",    label: "Google",    Icon: SiGoogle,    color: "#4285f4" },
 ];
@@ -88,7 +88,9 @@ export default function ThemeSelector() {
                   : "text-muted-foreground hover:text-foreground hover:bg-muted/60"
               }`}
             >
-              <Icon className="w-4 h-4 flex-shrink-0" style={{ color }} />
+              <span style={id === "verecell" && mode === "light" ? { background: "#000", borderRadius: "12px", display: "inline-flex", padding: "1px" } : {}}>
+                <Icon className="w-4 h-4 flex-shrink-0" style={{ color }} />
+              </span>
               <span className="font-medium">{label}</span>
               {resolvedTheme === id && (
                 <svg className="w-3.5 h-3.5 ml-auto flex-shrink-0" style={{ color }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>

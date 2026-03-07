@@ -15,7 +15,7 @@ export default function LoadingScreen({ onComplete }) {
         clearInterval(interval);
         setTimeout(() => onComplete(), 200);
       }
-    }, 40);
+    }, 50);
     return () => clearInterval(interval);
   }, [onComplete]);
 
