@@ -1,14 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./app/**/*.{js,jsx,ts,tsx}",
+    "./src/**/*.{js,jsx,ts,tsx}",
     "./components/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-space-grotesk)", "sans-serif"],
-        mono: ["var(--font-jetbrains-mono)", "monospace"],
+        sans: ["'Space Grotesk'", "var(--font-space-grotesk)", "sans-serif"],
+        mono: ["'JetBrains Mono'", "var(--font-jetbrains-mono)", "monospace"],
       },
       colors: {
         /* ── Legacy tokens ── */

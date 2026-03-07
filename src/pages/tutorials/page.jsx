@@ -1,6 +1,4 @@
-"use client";
-
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { FaGithub } from "react-icons/fa";
 import { BookOpen, Terminal, ArrowRight } from "lucide-react";
 import ReviewOnScroll from "@/components/ReviewOnScroll";
@@ -118,7 +116,7 @@ export default function TutorialsPage() {
                     {sections} sections · {highlight}
                   </p>
                   <Link
-                    href={href}
+                    to={href}
                     className="w-full flex items-center justify-center gap-2 bg-primary/10 hover:bg-primary/20 border border-primary/30 hover:border-primary/60 text-primary font-semibold text-sm py-2.5 rounded-lg transition-all"
                   >
                     Read the Docs

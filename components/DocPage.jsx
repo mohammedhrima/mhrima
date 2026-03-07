@@ -1,7 +1,5 @@
-"use client";
-
 import { useState, useCallback } from "react";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { FaGithub } from "react-icons/fa";
 import { Copy, Check, ChevronDown, ChevronRight } from "lucide-react";
 
@@ -178,7 +176,7 @@ export default function DocPage({ tutorial }) {
         </div>
         <div className="relative max-w-6xl mx-auto">
           <Link
-            href="/tutorials"
+            to="/tutorials"
             className="inline-flex items-center gap-1.5 text-xs font-mono text-muted-foreground hover:text-primary transition-colors mb-4"
           >
             ← All Tutorials

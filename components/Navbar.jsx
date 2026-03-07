@@ -1,9 +1,8 @@
-"use client";
-
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useEffect, useRef, useState, useCallback } from "react";
-import { Menu } from "lucide-react";
+import { Menu, Sun, Moon } from "lucide-react";
+import { useTheme } from "../src/providers/ThemeProvider";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -17,8 +16,9 @@ const navLinks = [
 ];
 
 export default function Navbar({ menuOpen, setMenuOpen }) {
-  const rawPathname = usePathname();
+  const { pathname: rawPathname } = useLocation();
   const pathname = rawPathname === "/" ? "/" : rawPathname.replace(/\/$/, "");
+  const { mode, toggleMode } = useTheme();
   const containerRef = useRef(null);
   const linkRefs = useRef({});
   const [indicator, setIndicator] = useState({ left: 0, width: 0, ready: false });
@@ -66,14 +66,30 @@ export default function Navbar({ menuOpen, setMenuOpen }) {
             {pathname === "/" ? "Home" : pathname.replace("/", "")}
           </span>
 
-          {/* Mobile hamburger */}
-          <button
-            className={`md:hidden p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors ${menuOpen ? "opacity-0 pointer-events-none" : "opacity-100"}`}
-            onClick={() => setMenuOpen((prev) => !prev)}
-            aria-label="Open menu"
-          >
-            <Menu className="w-5 h-5" />
-          </button>
+          {/* Mobile controls */}
+          <div className="md:hidden flex items-center gap-2">
+            {/* Dark/Light Mode Toggle */}
+            <button
+              onClick={toggleMode}
+              className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+              aria-label="Toggle dark/light mode"
+            >
+              {mode === 'dark' ? (
+                <Sun className="w-5 h-5" />
+              ) : (
+                <Moon className="w-5 h-5" />
+              )}
+            </button>
+
+            {/* Hamburger */}
+            <button
+              className={`p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors ${menuOpen ? "opacity-0 pointer-events-none" : "opacity-100"}`}
+              onClick={() => setMenuOpen((prev) => !prev)}
+              aria-label="Open menu"
+            >
+              <Menu className="w-5 h-5" />
+            </button>
+          </div>
 
           {/* Desktop links */}
           <div className="hidden md:flex items-stretch space-x-1 ml-auto">
@@ -82,7 +98,7 @@ export default function Navbar({ menuOpen, setMenuOpen }) {
               return (
                 <Link
                   key={href}
-                  href={href}
+                  to={href}
                   ref={(el) => { linkRefs.current[href] = el; }}
                   className={`px-3 flex items-center text-sm transition-colors duration-200 ${
                     isActive
@@ -94,6 +110,19 @@ export default function Navbar({ menuOpen, setMenuOpen }) {
                 </Link>
               );
             })}
+            
+            {/* Dark/Light Mode Toggle - Desktop */}
+            <button
+              onClick={toggleMode}
+              className="px-3 flex items-center text-muted-foreground hover:text-foreground transition-colors duration-200"
+              aria-label="Toggle dark/light mode"
+            >
+              {mode === 'dark' ? (
+                <Sun className="w-4 h-4" />
+              ) : (
+                <Moon className="w-4 h-4" />
+              )}
+            </button>
           </div>
         </div>
       </div>

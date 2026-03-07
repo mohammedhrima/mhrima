@@ -1,7 +1,6 @@
-"use client";
-
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import { X } from "lucide-react";
 
 const navLinks = [
@@ -16,8 +15,13 @@ const navLinks = [
 ];
 
 export default function MobileMenu({ menuOpen, setMenuOpen }) {
-  const rawPathname = usePathname();
+  const { pathname: rawPathname } = useLocation();
   const pathname = rawPathname === "/" ? "/" : rawPathname.replace(/\/$/, "");
+
+  // Close menu when pathname changes
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname, setMenuOpen]);
 
   return (
     <div
@@ -43,7 +47,7 @@ export default function MobileMenu({ menuOpen, setMenuOpen }) {
           return (
             <Link
               key={href}
-              href={href}
+              to={href}
               onClick={() => setMenuOpen(false)}
               className={`flex items-center justify-between px-4 py-4 rounded-xl text-base font-semibold transition-all duration-200 ${
                 menuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"

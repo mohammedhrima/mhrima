@@ -1,7 +1,5 @@
-"use client";
-
 import { useState, useEffect, useRef } from "react";
-import { useTheme } from "next-themes";
+import { useTheme } from "../../src/providers/ThemeProvider";
 import { SiAnthropic, SiGoogle, SiX, SiFacebook } from "react-icons/si";
 import { Code2, LayoutGrid } from "lucide-react";
 
@@ -9,13 +7,13 @@ const themes = [
   { id: "portfolio", label: "Portfolio", Icon: Code2,       color: "#3b82f6" },
   { id: "claude",    label: "Claude",    Icon: SiAnthropic, color: "#d97706" },
   { id: "twitter",   label: "X",         Icon: SiX,         color: "#1d9bf0" },
-  { id: "verecell",  label: "Verecell",  Icon: LayoutGrid,  color: "#ffffff" },
+  { id: "verecell",  label: "Verecell",  Icon: LayoutGrid,  color: "#ffffff", darkColor: "#ffffff", lightColor: "#000000" },
   { id: "facebook",  label: "Facebook",  Icon: SiFacebook,  color: "#2d88ff" },
-  { id: "google",    label: "Google",    Icon: SiGoogle,    color: "#8ab4f8" },
+  { id: "google",    label: "Google",    Icon: SiGoogle,    color: "#4285f4" },
 ];
 
 export default function ThemeSelector() {
-  const { setTheme, resolvedTheme } = useTheme();
+  const { setTheme, resolvedTheme, mode } = useTheme();
   const [open, setOpen]       = useState(false);
   const [mounted, setMounted] = useState(false);
   const ref = useRef(null);
@@ -37,6 +35,13 @@ export default function ThemeSelector() {
 
   const current = themes.find((t) => t.id === resolvedTheme) ?? themes[0];
   const { Icon: CurrentIcon } = current;
+  
+  // Use mode-specific color for Verecell theme
+  const buttonColor = current.lightColor && mode === 'light' 
+    ? current.lightColor 
+    : current.darkColor && mode === 'dark'
+    ? current.darkColor
+    : current.color;
 
   return (
     <div ref={ref} className="fixed top-20 left-8 z-50">
@@ -48,7 +53,7 @@ export default function ThemeSelector() {
             key={i}
             className="absolute inset-0 rounded-full border-2 pointer-events-none"
             style={{
-              borderColor: current.color,
+              borderColor: buttonColor,
               animation: `sonar-ring 2.4s cubic-bezier(0.2,0,0.8,1) ${i * 800}ms infinite`,
             }}
           />
@@ -57,9 +62,9 @@ export default function ThemeSelector() {
           onClick={handleToggle}
           className="relative w-11 h-11 rounded-full border-2 flex items-center justify-center transition-all duration-200 hover:scale-110"
           style={{
-            borderColor: current.color,
-            backgroundColor: `${current.color}20`,
-            color: current.color,
+            borderColor: buttonColor,
+            backgroundColor: `${buttonColor}20`,
+            color: buttonColor,
           }}
           aria-label="Change theme"
         >

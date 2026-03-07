@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { FaGithub } from "react-icons/fa";
 import { BookOpen, ArrowUpRight } from "lucide-react";
 
@@ -80,7 +80,7 @@ export default function FeaturedProjectCard({ project, index = 0 }) {
               )}
               {tutorialLink && (
                 <Link
-                  href={tutorialLink}
+                  to={tutorialLink}
                   className="flex items-center justify-between gap-2 text-sm bg-primary/10 hover:bg-primary/20 border border-primary/20 hover:border-primary/40 text-primary px-3 py-2 rounded-lg transition-all group/link"
                 >
                   <span className="flex items-center gap-2">

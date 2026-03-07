@@ -1,6 +1,4 @@
-"use client";
-
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 import { Cpu, Globe, Brain, FolderGit2, BookOpen, Zap, Briefcase, GraduationCap } from "lucide-react";
 import ReviewOnScroll from "@/components/ReviewOnScroll";
@@ -54,19 +52,19 @@ export default function HomePage() {
 
             <div className="flex flex-wrap gap-3 mb-10 justify-center md:justify-start">
               <Link
-                href="/projects"
+                to="/projects"
                 className="bg-primary hover:bg-primary/90 text-primary-foreground py-2.5 px-6 rounded-lg font-semibold text-sm transition-all"
               >
                 View Projects
               </Link>
               <Link
-                href="/tutorials"
+                to="/tutorials"
                 className="border border-primary/40 text-primary hover:bg-primary/10 hover:border-primary/70 py-2.5 px-6 rounded-lg font-semibold text-sm transition-all"
               >
                 Tutorials
               </Link>
               <Link
-                href="/contact"
+                to="/contact"
                 className="border border-border text-muted-foreground hover:bg-muted/50 hover:border-border-hover py-2.5 px-6 rounded-lg font-semibold text-sm transition-all"
               >
                 Get in Touch
@@ -189,7 +187,7 @@ export default function HomePage() {
           {quickNav.map(({ href, label, desc, Icon }) => (
             <Link
               key={href}
-              href={href}
+              to={href}
               className="card-lift p-4 rounded-xl border border-border hover:border-primary/40 hover:bg-primary/5 text-center group"
             >
               <Icon className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors mx-auto" />
