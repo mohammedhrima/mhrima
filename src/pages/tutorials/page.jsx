@@ -1,133 +1,124 @@
 import { Link } from "react-router-dom";
 import { FaGithub } from "react-icons/fa";
-import { BookOpen, Terminal, ArrowRight } from "lucide-react";
-import ReviewOnScroll from "@/components/ReviewOnScroll";
+import Band, { BandHeading } from "@/components/site/Band";
+import { uraLangTutorial } from "@/data/tutorials";
+import { uraJsTutorial } from "@/data/tutorials-urajs";
 
-const tutorials = [
+/** Section counts are derived, so they can never drift from the content. */
+function countSections(tutorial) {
+  return tutorial.groups.reduce((n, g) => n + g.sections.length, 0);
+}
+
+const DOCS = [
   {
+    tutorial: uraLangTutorial,
     href: "/tutorials/ura-lang",
-    label: "Language Docs",
-    title: "Ura Language",
-    tagline: "A compiled, statically-typed language with Python's clean indentation syntax — built on LLVM and written entirely in C.",
-    github: "https://github.com/mohammedhrima/ura-lang",
-    Icon: Terminal,
-    sections: 19,
     tags: ["C", "LLVM", "Compiler", "Systems"],
-    highlight: "LLVM-based compiler",
-    color: "text-primary",
-    sample: `use "@/io"
+    sample: `struct Hero:
+    name  chars
+    level int
 
-fn fib(n int) int:
-    if n <= 1: return n
-    return fib(n-1) + fib(n-2)
+    pub fn new(name chars) Hero:
+        h Hero
+        h.name  = name
+        h.level = 1
+        return h
 
 main():
-    printf("fib(10) = %d\\n", fib(10))`,
+    hero Hero = Hero::new("Aldric")
+    output(hero.name, " lv", hero.level, "\\n")`,
   },
   {
+    tutorial: uraJsTutorial,
     href: "/tutorials/urajs",
-    label: "Framework Docs",
-    title: "UraJS",
-    tagline: "A lightweight SPA framework with directory-based routing, reactive state, and live reload — inspired by React and Next.js.",
-    github: "https://github.com/mohammedhrima/UraJS",
-    Icon: BookOpen,
-    sections: 14,
-    tags: ["JavaScript", "JSX", "SPA", "Framework"],
-    highlight: "Custom JSX extensions",
-    color: "text-emerald-400",
-    sample: `function Counter() {
-  const [count, setCount] = Ura.State(0);
+    tags: ["TypeScript", "JSX", "SPA", "Framework"],
+    sample: `import Ura, { State } from "ura";
+
+function Counter() {
+  const [count, setCount] = State(0);
 
   return (
     <button onclick={() => setCount(count() + 1)}>
-      Clicks: {count()}
+      Clicked {count()} times
     </button>
   );
-}`,
+}
+
+export default Counter;`,
   },
 ];
 
 export default function TutorialsPage() {
   return (
-    <div className="pt-16">
-      {/* Hero */}
-      <section className="relative pt-20 pb-12 px-4 grid-bg overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px]" />
-        </div>
-        <div className="relative max-w-5xl mx-auto text-center">
-          <span className="section-label">Docs & Guides</span>
-          <h1 className="text-4xl md:text-5xl font-bold mt-3 gradient-text-blue">Tutorials</h1>
-          <p className="text-muted-foreground text-base mt-4 max-w-xl mx-auto">
-            Deep-dives into two projects I built from scratch — a compiled language and a frontend framework.
-          </p>
-        </div>
-      </section>
+    <>
+      <Band tone="brand" innerClassName="py-14">
+        <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
+          Documentation
+        </h1>
+        <p className="mt-3 max-w-2xl text-[0.95rem] leading-relaxed text-white/85">
+          Full written documentation for the two things I built from scratch — a
+          compiled language and a reactive UI framework.
+        </p>
+      </Band>
 
-      {/* Cards */}
-      <section className="py-12 px-4">
-        <ReviewOnScroll>
-          <div className="max-w-5xl w-full mx-auto grid md:grid-cols-2 gap-6">
-            {tutorials.map(({ href, label, title, tagline, github, Icon, sections, tags, highlight, color, sample }) => (
-              <div key={href} className="card-lift rounded-2xl border border-border bg-card overflow-hidden flex flex-col">
-                {/* Card header */}
-                <div className="p-8 pb-6 border-b border-border">
-                  <div className="flex items-start justify-between gap-3 mb-4">
-                    <div className={`w-11 h-11 rounded-xl bg-primary/10 border border-border flex items-center justify-center ${color}`}>
-                      <Icon className="w-5 h-5" />
-                    </div>
-                    <a
-                      href={github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
-                      className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      <FaGithub className="w-3.5 h-3.5" />
-                      GitHub
-                    </a>
-                  </div>
-                  <span className="text-xs font-mono text-muted-foreground uppercase tracking-widest">{label}</span>
-                  <h2 className="text-2xl font-bold text-foreground mt-1 mb-2">{title}</h2>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{tagline}</p>
-                </div>
+      <Band tone="alt">
+        <div className="grid gap-6 lg:grid-cols-2">
+          {DOCS.map(({ tutorial, href, tags, sample }) => (
+            <article
+              key={tutorial.id}
+              className="flex flex-col rounded border border-[var(--ds-border)] bg-[var(--ds-bg)] p-6"
+            >
+              <p className="text-[0.68rem] font-semibold uppercase tracking-widest text-[var(--ds-muted)]">
+                {tutorial.label}
+              </p>
 
-                {/* Code preview */}
-                <div className="mx-6 my-5 rounded-lg overflow-hidden border border-border flex-1">
-                  <div className="flex items-center gap-1.5 px-3 py-2 bg-muted border-b border-border">
-                    <div className="w-2 h-2 rounded-full bg-red-500/60" />
-                    <div className="w-2 h-2 rounded-full bg-yellow-500/60" />
-                    <div className="w-2 h-2 rounded-full bg-green-500/60" />
-                    <span className="ml-2 text-xs font-mono text-muted-foreground">{title === "Ura Language" ? "example.ura" : "Counter.jsx"}</span>
-                  </div>
-                  <pre className="bg-[#0d0d0d] text-[#d4d4d8] text-xs font-mono p-4 overflow-x-auto leading-relaxed whitespace-pre">
-                    <code>{sample}</code>
-                  </pre>
-                </div>
+              <h2 className="mt-2 text-xl font-bold">{tutorial.title}</h2>
 
-                {/* Meta */}
-                <div className="px-6 pb-4">
-                  <div className="flex flex-wrap gap-1.5 mb-4">
-                    {tags.map((tag) => (
-                      <span key={tag} className="badge badge-blue">{tag}</span>
-                    ))}
-                  </div>
-                  <p className="text-xs text-muted-foreground font-mono mb-5">
-                    {sections} sections · {highlight}
-                  </p>
-                  <Link
-                    to={href}
-                    className="w-full flex items-center justify-center gap-2 bg-primary/10 hover:bg-primary/20 border border-primary/30 hover:border-primary/60 text-primary font-semibold text-sm py-2.5 rounded-lg transition-all"
+              <p className="mt-2 text-[0.9rem] leading-relaxed text-[var(--ds-muted)]">
+                {tutorial.tagline}
+              </p>
+
+              <ul className="mt-4 flex list-none flex-wrap gap-1.5 p-0">
+                {tags.map((tag) => (
+                  <li
+                    key={tag}
+                    className="rounded border border-[var(--ds-border)] px-2 py-0.5 font-mono text-[0.7rem] text-[var(--ds-muted)]"
                   >
-                    Read the Docs
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </div>
+                    {tag}
+                  </li>
+                ))}
+              </ul>
+
+              <div className="ds-code mt-5 flex-1">
+                <pre>
+                  <code>{sample}</code>
+                </pre>
               </div>
-            ))}
-          </div>
-        </ReviewOnScroll>
-      </section>
-    </div>
+
+              <div className="mt-5 flex flex-wrap items-center gap-3">
+                <Link
+                  to={href}
+                  className="rounded bg-[var(--ds-primary)] px-4 py-1.5 text-sm font-medium text-[var(--ds-primary-contrast)] transition-opacity hover:opacity-90"
+                >
+                  Read the Docs
+                </Link>
+                <a
+                  href={tutorial.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 rounded border border-[var(--ds-border)] px-4 py-1.5 text-sm transition-colors hover:border-[var(--ds-primary)] hover:text-[var(--ds-primary)]"
+                >
+                  <FaGithub className="h-3.5 w-3.5" aria-hidden="true" />
+                  Source
+                </a>
+                <span className="ml-auto font-mono text-[0.75rem] text-[var(--ds-muted)]">
+                  {countSections(tutorial)} sections
+                </span>
+              </div>
+            </article>
+          ))}
+        </div>
+      </Band>
+    </>
   );
 }

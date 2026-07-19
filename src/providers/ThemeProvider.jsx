@@ -4,7 +4,7 @@ const ThemeContext = createContext(undefined);
 
 const AVAILABLE_THEMES = ['portfolio', 'claude', 'twitter', 'verecell', 'facebook', 'google'];
 const DEFAULT_THEME = 'portfolio';
-const DEFAULT_MODE = 'dark';
+const DEFAULT_MODE = 'light';
 const STORAGE_KEY_THEME = 'theme';
 const STORAGE_KEY_MODE = 'theme-mode';
 

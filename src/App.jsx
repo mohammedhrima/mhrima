@@ -1,5 +1,11 @@
-import { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  useLocation,
+} from 'react-router-dom';
 
 // Page components
 import HomePage from './pages/home/page';
@@ -13,41 +19,52 @@ import TutorialsPage from './pages/tutorials/page';
 import UraJSPage from './pages/tutorials/urajs/page';
 import UraLangPage from './pages/tutorials/ura-lang/page';
 
-// Components
-import Navbar from '../components/Navbar';
-import MobileMenu from '../components/MobileMenu';
-import LoadingScreen from '../components/LoadingScreen';
-import ThemeSelector from '../components/ui/ThemeSelector';
+// Shell
+import SiteHeader from '../components/site/SiteHeader';
+import SiteFooter from '../components/site/SiteFooter';
 
-export default function App() {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [showLoading, setShowLoading] = useState(true);
-  const [menuOpen, setMenuOpen] = useState(false);
+/**
+ * React Router owns navigation, so the browser never performs its own hash
+ * jump. This restores it: scroll to `#id` on hash changes, and back to the top
+ * on a plain route change.
+ */
+function ScrollManager() {
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    // Always show loading screen on fresh page load or reload
-    setShowLoading(true);
-    
-    // Apply font classes to html element
-    document.documentElement.style.setProperty('--font-space-grotesk', "'Space Grotesk', sans-serif");
-    document.documentElement.style.setProperty('--font-jetbrains-mono', "'JetBrains Mono', monospace");
-  }, []);
+    if (hash) {
+      // Wait a frame so the target exists once the route has rendered.
+      const id = decodeURIComponent(hash.slice(1));
+      requestAnimationFrame(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+      });
+      return;
+    }
+    window.scrollTo(0, 0);
+  }, [pathname, hash]);
 
-  const handleLoadingComplete = () => {
-    setIsLoaded(true);
-    setShowLoading(false);
-  };
+  return null;
+}
+
+export default function App() {
+  useEffect(() => {
+    document.documentElement.style.setProperty(
+      '--font-space-grotesk',
+      "'Space Grotesk', sans-serif"
+    );
+    document.documentElement.style.setProperty(
+      '--font-jetbrains-mono',
+      "'JetBrains Mono', monospace"
+    );
+  }, []);
 
   return (
     <BrowserRouter>
-      {showLoading && !isLoaded && <LoadingScreen onComplete={handleLoadingComplete} />}
-      <div className={`transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
-        <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-        <MobileMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-        <ThemeSelector />
-        <main className="min-h-screen">
+      <ScrollManager />
+      <div className="ds-root flex min-h-screen flex-col">
+        <SiteHeader />
+        <main className="flex-1">
           <Routes>
-            {/* Main routes */}
             <Route path="/" element={<HomePage />} />
             <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/experience" element={<ExperiencePage />} />
@@ -55,16 +72,15 @@ export default function App() {
             <Route path="/education" element={<EducationPage />} />
             <Route path="/resume" element={<ResumePage />} />
             <Route path="/contact" element={<ContactPage />} />
-            
-            {/* Tutorials routes */}
+
             <Route path="/tutorials" element={<TutorialsPage />} />
             <Route path="/tutorials/urajs" element={<UraJSPage />} />
             <Route path="/tutorials/ura-lang" element={<UraLangPage />} />
-            
-            {/* Redirect all unknown routes to home */}
+
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>
+        <SiteFooter />
       </div>
     </BrowserRouter>
   );

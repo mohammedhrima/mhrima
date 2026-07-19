@@ -1,0 +1,328 @@
+/* ══════════════════════════════════════════════════════════════
+   Design system — inspired by odin-lang.org
+   Principles: restraint, structure, content-first. Light by default.
+   All tokens are --ds-* prefixed so they never collide with the
+   legacy multi-theme tokens in main.css.
+   ══════════════════════════════════════════════════════════════ */
+
+:root {
+  --ds-nav-h: 56px;
+
+  /* Surfaces — the three alternating section bands, like Odin */
+  --ds-band-brand: #1f5fbf; /* band 1 — brand block  */
+  --ds-band-alt: #f6f8fa;   /* band 2 — subtle gray  */
+  --ds-band-base: #ffffff;  /* band 3 — plain white  */
+
+  --ds-bg: #ffffff;
+  --ds-fg: #1a1d21;
+  --ds-muted: #5b6570;
+  --ds-border: #dee2e6;
+  --ds-border-soft: #eaecef;
+
+  /* Accents — same *roles* as Odin's blue/orange, but our own values */
+  --ds-primary: #1f5fbf;
+  --ds-primary-hover: #1a4f9f;
+  --ds-primary-contrast: #ffffff;
+  --ds-secondary: #c2600d; /* warm amber — AA on white */
+  --ds-secondary-contrast: #ffffff;
+
+  --ds-code-bg: #f6f8fa;
+  --ds-code-fg: #24292f;
+  --ds-inline-code: #b1400a;
+
+  --ds-footer-bg: #2b3138;
+  --ds-footer-fg: #ced4da;
+
+  --ds-focus: #1f5fbf;
+}
+
+[data-mode="dark"] {
+  --ds-band-brand: hsl(214 63% 26%);
+  --ds-band-alt: #0d1117;
+  --ds-band-base: #14181f;
+
+  --ds-bg: #0d1117;
+  --ds-fg: #e6edf3;
+  --ds-muted: #9aa7b4;
+  --ds-border: #242f3f;
+  --ds-border-soft: #1c242f;
+
+  --ds-primary: #7aade5;
+  --ds-primary-hover: #9cc4ee;
+  --ds-primary-contrast: #0d1117;
+  --ds-secondary: #ffaa44;
+  --ds-secondary-contrast: #1a1200;
+
+  --ds-code-bg: #182028;
+  --ds-code-fg: #d5dee8;
+  --ds-inline-code: #ffaa44;
+
+  --ds-footer-bg: #161d27;
+  --ds-footer-fg: #b8c2cc;
+
+  --ds-focus: #7aade5;
+}
+
+/* ── Shell ────────────────────────────────────────────────── */
+.ds-root {
+  background-color: var(--ds-bg);
+  color: var(--ds-fg);
+  font-family: var(--font-space-grotesk), system-ui, sans-serif;
+}
+
+/* Alternating full-bleed section bands */
+.ds-band-brand {
+  background-color: var(--ds-band-brand);
+  color: #ffffff;
+}
+.ds-band-alt {
+  background-color: var(--ds-band-alt);
+  color: var(--ds-fg);
+}
+.ds-band-base {
+  background-color: var(--ds-band-base);
+  color: var(--ds-fg);
+}
+
+/* ── Links ────────────────────────────────────────────────── */
+.ds-link {
+  color: var(--ds-primary);
+  text-decoration: none;
+}
+.ds-link:hover {
+  text-decoration: underline;
+}
+
+/* Consistent, visible focus ring for keyboard users */
+.ds-root :focus-visible {
+  outline: 2px solid var(--ds-focus);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Docs / tutorial layout
+   ══════════════════════════════════════════════════════════════ */
+
+/* Sticky rails sit right below the fixed navbar and scroll on their own */
+.ds-below-nav {
+  top: var(--ds-nav-h);
+  max-height: calc(100vh - var(--ds-nav-h));
+  overflow: auto;
+}
+
+@media (min-width: 1024px) {
+  .ds-sidebar-border {
+    border-right: 1px solid var(--ds-border);
+  }
+  .ds-toc-border {
+    border-left: 1px solid var(--ds-border);
+  }
+}
+
+/* The scroll-to-anchor offset trick, straight from Odin: pull the
+   heading up by the navbar height, then pad it back down, so
+   `#anchor` jumps land below the sticky navbar instead of under it. */
+.ds-article :is(h1, h2, h3, h4, h5) {
+  margin-top: calc(var(--ds-nav-h) * -1);
+  padding-top: calc(var(--ds-nav-h) + 1.5rem);
+}
+
+/* ── Long-form article typography ─────────────────────────── */
+.ds-article {
+  color: var(--ds-fg);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.ds-article h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  border-bottom: 1px solid var(--ds-border-soft);
+  padding-bottom: 0.4rem;
+  /* keep the anchor-offset padding from the rule above */
+  padding-top: calc(var(--ds-nav-h) + 1.5rem);
+}
+
+.ds-article h3 {
+  font-size: 1.15rem;
+  font-weight: 650;
+}
+
+.ds-article h4 {
+  font-size: 1rem;
+  font-weight: 650;
+}
+
+.ds-article p {
+  margin-bottom: 1rem;
+}
+
+.ds-article > * + :is(h2, h3, h4) {
+  margin-bottom: 0.6rem;
+}
+
+.ds-article ul,
+.ds-article ol {
+  margin: 0 0 1rem 1.25rem;
+  list-style: revert;
+}
+.ds-article li {
+  margin-bottom: 0.3rem;
+}
+
+.ds-article strong {
+  font-weight: 650;
+}
+
+/* Heading anchor — hidden until the heading is hovered */
+.ds-anchor {
+  color: var(--ds-muted);
+  text-decoration: none;
+  opacity: 0;
+  margin-left: 0.4rem;
+  font-weight: 400;
+  transition: opacity 0.12s linear;
+}
+:is(h2, h3, h4):hover .ds-anchor,
+.ds-anchor:focus-visible {
+  opacity: 1;
+}
+
+/* ── Code ─────────────────────────────────────────────────── */
+.ds-article :not(pre) > code {
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 0.85em;
+  color: var(--ds-inline-code);
+  background: var(--ds-code-bg);
+  border: 1px solid var(--ds-border-soft);
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+}
+
+.ds-code {
+  background: var(--ds-code-bg);
+  border: 1px solid var(--ds-border);
+  border-radius: 0.5em;
+  overflow: hidden;
+  margin: 1rem 0;
+}
+.ds-code pre {
+  margin: 0;
+  padding: 1rem 1.15rem;
+  overflow-x: auto;
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 0.82rem;
+  line-height: 1.65;
+  color: var(--ds-code-fg);
+  white-space: pre;
+}
+
+/* JetBrains Mono ligates `==`, `===`, `->`, `!=` into single glyphs, which
+   misrepresents source code — `===` must read as three characters. */
+.ds-code pre,
+.ds-code code,
+.ds-article :not(pre) > code {
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0, "calt" 0;
+}
+
+/* ── Tables — never let one blow out the article width ────── */
+.ds-article table {
+  display: block;
+  overflow-x: auto;
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.875rem;
+}
+.ds-article th,
+.ds-article td {
+  border: 1px solid var(--ds-border);
+  padding: 0.2rem 0.5rem;
+  text-align: left;
+}
+.ds-article th {
+  background: var(--ds-code-bg);
+  font-weight: 650;
+}
+
+/* ── Table of contents (right rail) ───────────────────────── */
+.ds-toc ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.ds-toc li:not(:last-child) {
+  margin-bottom: 0.25rem;
+}
+.ds-toc li > ul {
+  padding-left: 1rem;
+  padding-top: 0.1rem;
+}
+.ds-toc a {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--ds-muted);
+  text-decoration: none;
+  display: block;
+  transition: color 50ms linear;
+}
+.ds-toc a:hover {
+  color: var(--ds-primary);
+}
+.ds-toc li.is-active > a {
+  color: var(--ds-secondary);
+  font-weight: 700;
+  border-left: 2px solid currentColor;
+  padding-left: 3px;
+  margin-left: -5px;
+}
+
+/* ── Auto-numbering (CSS counters), like Odin's ───────────── */
+.ds-article[data-autonumber] {
+  counter-reset: h2;
+}
+.ds-article[data-autonumber] h2 {
+  counter-reset: h3;
+}
+.ds-article[data-autonumber] h3 {
+  counter-reset: h4;
+}
+.ds-article[data-autonumber] h2::before {
+  counter-increment: h2;
+  content: counter(h2) ". ";
+}
+.ds-article[data-autonumber] h3::before {
+  counter-increment: h3;
+  content: counter(h2) "." counter(h3) ". ";
+}
+.ds-article[data-autonumber] h4::before {
+  counter-increment: h4;
+  content: counter(h2) "." counter(h3) "." counter(h4) ". ";
+}
+
+/* ── Callouts ─────────────────────────────────────────────── */
+.ds-callout {
+  border-left: 3px solid var(--ds-primary);
+  background: var(--ds-code-bg);
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+  border-radius: 0 4px 4px 0;
+  font-size: 0.9rem;
+}
+.ds-callout-warn {
+  border-left-color: var(--ds-secondary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ds-root *,
+  .ds-root *::before,
+  .ds-root *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
