@@ -41,6 +41,14 @@ function CodeBlock({ code, label }) {
   );
 }
 
+/** Renders `backticked` spans in prose as inline code. Headings are left
+ *  alone — their text feeds slugify() for anchor ids. */
+function Inline({ text }) {
+  return text
+    .split(/`([^`]+)`/)
+    .map((part, i) => (i % 2 ? <code key={i}>{part}</code> : part));
+}
+
 /** A heading that carries its own `#` anchor link, like Odin's docs. */
 function AnchoredHeading({ level, id, children }) {
   const Tag = `h${level}`;
@@ -58,7 +66,11 @@ function Blocks({ blocks, sectionId }) {
   return blocks.map((block, i) => {
     switch (block.type) {
       case "text":
-        return <p key={i}>{block.content}</p>;
+        return (
+          <p key={i}>
+            <Inline text={block.content} />
+          </p>
+        );
 
       case "heading":
         return (
@@ -80,7 +92,7 @@ function Blocks({ blocks, sectionId }) {
         return (
           <div key={i} className="ds-callout">
             <strong>Note — </strong>
-            {block.content}
+            <Inline text={block.content} />
           </div>
         );
 
@@ -88,7 +100,7 @@ function Blocks({ blocks, sectionId }) {
         return (
           <div key={i} className="ds-callout ds-callout-warn">
             <strong>Warning — </strong>
-            {block.content}
+            <Inline text={block.content} />
           </div>
         );
 
@@ -106,7 +118,9 @@ function Blocks({ blocks, sectionId }) {
               {block.rows.map((row, ri) => (
                 <tr key={ri}>
                   {row.map((cell, ci) => (
-                    <td key={ci}>{cell}</td>
+                    <td key={ci}>
+                      <Inline text={cell} />
+                    </td>
                   ))}
                 </tr>
               ))}
@@ -118,7 +132,9 @@ function Blocks({ blocks, sectionId }) {
         return (
           <ul key={i}>
             {block.items.map((item, li) => (
-              <li key={li}>{item}</li>
+              <li key={li}>
+                <Inline text={item} />
+              </li>
             ))}
           </ul>
         );

@@ -15,18 +15,22 @@ const DOCS = [
     href: "/tutorials/ura-lang",
     tags: ["C", "LLVM", "Compiler", "Systems"],
     sample: `struct Hero:
-    name  chars
-    level int
+    name  char[]
+    level i32
 
-    pub fn new(name chars) Hero:
+    pub fn create(name char[]) Hero:
         h Hero
         h.name  = name
         h.level = 1
-        return h
+        ret h
+
+    fn promote() void:
+        self.level = self.level + 1
 
 main():
-    hero Hero = Hero::new("Aldric")
-    output(hero.name, " lv", hero.level, "\\n")`,
+    hero Hero = Hero::create("Aldric")
+    hero.promote()
+    output(hero, "\\n")`,
   },
   {
     tutorial: uraJsTutorial,
